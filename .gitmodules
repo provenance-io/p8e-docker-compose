@@ -1,4 +1,4 @@
 [submodule "provenance"]
 	path = provenance
-	url = git@github.com:provenance-io/provenance.git
+	url = https://github.com/provenance-io/provenance.git
 	branch = main

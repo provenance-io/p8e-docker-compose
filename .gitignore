@@ -7,9 +7,6 @@ os_storage_bucket
 # ignore build related files
 .pbc.pid
 pbc_api.log
-env/host/dynamic_env
-env/p8e/dynamic_env
-env/p8e/webservice/dynamic_env
 
 # ignore custom host port overrides
 .host_port_overrides

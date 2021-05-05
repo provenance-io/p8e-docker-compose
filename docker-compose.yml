@@ -113,7 +113,6 @@ services:
       - p8e
     env_file:
       - ./env/p8e/webservice/env
-      - ./env/p8e/webservice/dynamic_env
       - ./env/common/env
     ports:
       - 5003:8090

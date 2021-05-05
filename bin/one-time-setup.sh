@@ -1,12 +1,7 @@
 #!/bin/bash
 set -e
 
-P8E_WEBSERVICE_ENV_FILE=env/p8e/webservice/dynamic_env
 PROVENANCE_PATH=provenance
-
-# touch file so that docker-compose will link to it and startup p8e correctly
-# the file contents will be added and p8e will be restarted later in this script
-touch $P8E_WEBSERVICE_ENV_FILE
 
 . bin/source
 . bin/stop
@@ -54,12 +49,6 @@ mkdir os_storage_bucket
 docker-compose up p8e-migrate
 
 docker exec -it p8e-postgres psql -U postgres p8e -f keys/p8e.sql
-
-# TODO eliminate the need for this
-echo "Writing dynamic configuration file for p8e..."
-echo "*** POPULATE THE PROVENANCE_OAUTH_CLIENT_SECRET VALUE BELOW WITH THE SECRET FROM PROVENANCE TEST ***" > $P8E_WEBSERVICE_ENV_FILE
-echo "PROVENANCE_OAUTH_CLIENT_SECRET=" >> $P8E_WEBSERVICE_ENV_FILE
-echo "" >> $P8E_WEBSERVICE_ENV_FILE
 
 . bin/stop
 

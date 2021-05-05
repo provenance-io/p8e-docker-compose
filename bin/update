@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+. bin/source
+
+git submodule update --init --remote provenance
+
+docker-compose pull

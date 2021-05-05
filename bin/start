@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+source bin/source
+
+cd provenance
+make build
+make localnet-start
+cd ..
+
+sleep 5 # allow creation of docker network that will need to be linked
+
+docker-compose up -d

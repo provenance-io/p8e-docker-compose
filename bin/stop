@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+. bin/source
+
+docker-compose down
+cd provenance && make localnet-stop && cd ..

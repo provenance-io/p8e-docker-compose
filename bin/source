@@ -1,0 +1,4 @@
+. env/host/ports
+if [ -f .host_port_overrides ]; then
+	source .host_port_overrides
+fi

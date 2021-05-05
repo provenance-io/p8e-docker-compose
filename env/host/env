@@ -1,0 +1,3 @@
+export CHAINCODE_MNEMONIC="fame shuffle honey general ten virtual cloth stock exchange liar muffin permit behind matter dumb genuine purchase fox used odor decline truth label load"
+export PRIVATE_KEY="0A2071E487C3FB00642F1863D57749F32D94F13892FA68D02049F7EA9E8FC58D6E63"
+export API_URL="grpc://localhost:5002"

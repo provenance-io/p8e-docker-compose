@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+. bin/stop
+
+docker-compose rm -fsv
+docker volume rm p8e-docker-compose_p8e-postgres || echo "Skipping volume prune because it didn't exist"
+cd provenance && make clean && cd ..

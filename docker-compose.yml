@@ -1,0 +1,144 @@
+version: '3.5'
+
+services:
+
+  p8e-postgres:
+    image: postgres:9.6.6-alpine
+    container_name: p8e-postgres
+    networks:
+      - p8e
+    volumes:
+      - p8e-postgres:/var/lib/postgresql/data
+      - ./keys/p8e.sql:/keys/p8e.sql
+    env_file:
+      - ./env/common/env
+    ports:
+      - "${HOST_DB_PORT}:5432"
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U postgres]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    command:
+      postgres
+
+  redis:
+    image: redis:3.2.11
+    container_name: redis
+    networks:
+      - p8e
+    ports:
+      - "${HOST_REDIS_PORT}:6379"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - http.port=9200
+      - http.cors.enabled=true
+      - http.cors.allow-origin=http://localhost:1358,http://127.0.0.1:1358
+      - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      - http.cors.allow-credentials=true
+      - bootstrap.memory_lock=true
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - ./es/data1:/usr/share/elasticsearch/data
+    ports:
+      - "${HOST_ELASTIC_SEARCH_PORT}:9200"
+    networks:
+      - p8e
+
+  dejavu:
+    image: appbaseio/dejavu:3.2.3
+    container_name: dejavu
+    ports:
+      - "${HOST_DEJAVU_PORT}:1358"
+    links:
+      - elasticsearch
+    networks:
+      - p8e
+
+  object-store:
+    image: ghcr.io/provenance-io/object-store:0.1.0-public-release-beta.2
+    container_name: object-store
+    networks:
+      - p8e
+    depends_on:
+      - redis
+    env_file:
+      - ./env/object-store/env
+      - ./env/common/env
+    ports:
+      - 5000:8080
+    volumes:
+      - ./os_storage_bucket:/mnt/data
+
+  p8e-migrate:
+    image: ghcr.io/provenance-io/p8e-migration:0.6.0-testnet-beta.4
+    container_name: p8e-migrate
+    networks:
+      - p8e
+    depends_on:
+      - p8e-postgres
+    env_file:
+      - ./env/common/env
+    environment:
+      - FLYWAY_URL=jdbc:postgresql://p8e-postgres:5432/p8e
+      - FLYWAY_SCHEMAS=p8e
+    command: migrate
+
+  p8e:
+    image: ghcr.io/provenance-io/p8e-api:0.6.0-testnet-beta.4
+    container_name: p8e
+    networks:
+      - p8e
+      - provenance
+    depends_on:
+      - p8e-migrate
+      - object-store
+      - elasticsearch
+    env_file:
+      - ./env/p8e/env
+      - ./env/common/env
+    ports:
+      - 5002:8080
+
+  p8e-webservice:
+    image: ghcr.io/provenance-io/p8e-api-webservice:0.6.0-testnet-beta.4
+    container_name: p8e-webservice
+    networks:
+      - p8e
+    depends_on:
+      - p8e
+    env_file:
+      - ./env/p8e/webservice/env
+      - ./env/p8e/webservice/dynamic_env
+      - ./env/common/env
+    ports:
+      - 5003:8090
+
+  p8e-ui:
+    image: ghcr.io/provenance-io/p8e-ui:0.1.0
+    container_name: p8e-ui
+    networks:
+      - p8e
+    depends_on:
+      - p8e-webservice
+    env_file:
+      - ./env/p8e/ui/env
+    ports:
+      - 3000:80
+
+volumes:
+  p8e-postgres:
+
+networks:
+  p8e:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.10.0/24
+  provenance:
+    external:
+      name: provenance_localnet

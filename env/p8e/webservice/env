@@ -1,0 +1,15 @@
+SPRING_PROFILES_ACTIVE=container
+API_URL=grpc://p8e:8080
+JWT_SECRET=NOyNPnJ6pujmaEXug1wxrepdPrvYHJDFFvXn3XlHOfwF92tIGZ2cERL66uXgKTef
+JWT_ISSUER=Provenance
+JWT_CONSUMER=not-sure-yet
+JWT_EXPIRE_SECONDS=43200
+OS_URL=grpc://object-store:8080
+OS_API_KEY=
+DB_NAME=p8e
+DB_SCHEMA=p8e
+PROVENANCE_OAUTH_URL=https://test.provenance.io/login/oauth/authorize
+PROVENANCE_OAUTH_CLIENT_ID=KVGCJaT+f5NekCvPJeZikOZ5ekDb3h2IUa35OOc+O+6Ui61w+h/9fCmdWpZx1kTXpner5YMvrH3GF+PvuP1zxQ==
+PROVENANCE_OAUTH_REDIRECT_URL=http://localhost:3000/oauth/callback
+PROVENANCE_OAUTH_IDENTITY_URL=https://test.provenance.io/identity
+PROVENANCE_KEYSTONE_URL=https://test.provenance.io/keystone/key/registration/secured

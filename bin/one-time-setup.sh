@@ -44,7 +44,7 @@ until docker exec -it p8e-postgres pg_isready --username=postgres --host=p8e-pos
 done
 
 bin/create-all-dbs.sh
-mkdir os_storage_bucket
+mkdir -p os_storage_bucket
 
 docker-compose up p8e-migrate
 

@@ -5,4 +5,6 @@ set -e
 
 git submodule update --init --remote provenance
 
+cd provenance && git checkout 46a3b7125891558c5df7b4a222475100915fb10c && cd ..
+
 docker-compose pull

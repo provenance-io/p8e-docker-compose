@@ -57,7 +57,7 @@ with the above scripts.
 
 ## Visualizing contract execution
 
-The 'p8e-ui' container hosts a UI that can be used to inspect contract status and contents, as well as the overall flow of contracts through the system. Once all containers are up and running, this can be accessed at http://localhost:3000. In order to see data via this interface, you will first need to log in via a Provenance test identity. Once logged in for the first time, you will need to navigate to the 'Key Management' section of the UI in order to register a (new or existing) key with your identity. Once a key has been registered, you should be able to view contracts and scope data associated with that key.
+The 'p8e-ui' container hosts a UI that can be used to inspect contract status and contents, as well as the overall flow of contracts through the system. Once all containers are up and running, this can be accessed at http://localhost:3000. Once logged in for the first time, you will need to navigate to the 'Key Management' section of the UI in order to register a (new or existing) key if no keys yet exist in the system. Once there are contracts in the system, you should be able to view contracts and scope data.
 
 ## Host port reservations
 

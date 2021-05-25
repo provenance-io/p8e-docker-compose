@@ -28,8 +28,8 @@ sleep 10
     --keyring-backend test \
     --home build/node0 \
     --chain-id chain-local \
-    --gas auto \
-    --fees 3000nhash \
+    --gas-prices 1905nhash \
+    --gas 100000 \
     --broadcast-mode block \
     --yes \
     --testnet | jq

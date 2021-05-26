@@ -6,6 +6,13 @@ This repo contains supporting tools for p8e developers that help with the follow
 
 NOTE: Increase Docker Resources RAM to at least 2 CPUs and 5GB RAM.
 
+## Prerequisites
+
+Before getting started the following are the required tools you'll need to have installed:
+
+- make
+- [go 1.15+](https://golang.org/dl/)
+
 ## First time setup
 
 - Brings up all infrastructure and then seeds the p8e database with some useful key pairs.
@@ -14,6 +21,8 @@ NOTE: Increase Docker Resources RAM to at least 2 CPUs and 5GB RAM.
 ```bash
 ./bin/one-time-setup.sh
 ```
+
+If this completes successfully, you'll see the final stdout message of `Setup is complete!`. If it fails, it is best to run `./bin/clean` before attempting `./bin/one-time-setup.sh` again.
 
 ## Start / stop
 

@@ -1,9 +1,7 @@
 #!/bin/bash
 
 DATABASES=(
-  "object_store"
   "object-store"
-  "mailbox"
   "p8e"
 )
 

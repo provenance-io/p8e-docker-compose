@@ -32,7 +32,7 @@ sleep 10
     --gas 100000 \
     --broadcast-mode block \
     --yes \
-    --testnet | jq
+    --testnet
 cd ..
 
 docker-compose up -d p8e-postgres

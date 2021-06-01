@@ -74,7 +74,6 @@ The following are ports that are forwarded on the host machine:
 
 ```
 postgres:         5432
-redis:            6379
 elasticsearch:    9200
 elasticsearch-ui: 1358
 
@@ -84,7 +83,7 @@ p8e-webservice:   5003
 p8e-ui:           3000
 ```
 
-Base containers (postgres, redis, etc) can be configured to forward to different host ports. Copy the default
+Base containers (postgres, etc) can be configured to forward to different host ports. Copy the default
 port listing like below and override as needed.
 
 ```

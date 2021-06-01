@@ -1,4 +1,4 @@
 [submodule "provenance"]
-	path = provenance
+	path = docker-compose/provenance
 	url = https://github.com/provenance-io/provenance.git
 	branch = main

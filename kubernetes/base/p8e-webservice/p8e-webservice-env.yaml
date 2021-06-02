@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: p8e-webservice-env
+  namespace: p8e
+data:
+  API_URL: grpc://p8e:8080
+  DB_NAME: p8e
+  DB_SCHEMA: p8e
+  JWT_CONSUMER: not-sure-yet
+  JWT_EXPIRE_SECONDS: "43200"
+  JWT_ISSUER: Provenance
+  JWT_SECRET: NOyNPnJ6pujmaEXug1wxrepdPrvYHJDFFvXn3XlHOfwF92tIGZ2cERL66uXgKTef
+  OS_API_KEY: ""
+  OS_URL: grpc://object-store:8080
+  PROVENANCE_KEYSTONE_URL: https://test.provenance.io/keystone/key/registration/secured
+  PROVENANCE_OAUTH_CLIENT_ID: KVGCJaT+f5NekCvPJeZikOZ5ekDb3h2IUa35OOc+O+6Ui61w+h/9fCmdWpZx1kTXpner5YMvrH3GF+PvuP1zxQ==
+  PROVENANCE_OAUTH_IDENTITY_URL: https://test.provenance.io/identity
+  PROVENANCE_OAUTH_REDIRECT_URL: http://localhost:3000/oauth/callback
+  PROVENANCE_OAUTH_URL: https://test.provenance.io/login/oauth/authorize
+  SPRING_PROFILES_ACTIVE: container

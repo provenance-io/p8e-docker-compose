@@ -29,3 +29,5 @@ spec:
         envFrom:
         - configMapRef:
             name: common-env
+        - configMapRef:
+            name: p8e-env

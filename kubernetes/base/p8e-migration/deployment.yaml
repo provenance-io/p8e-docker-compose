@@ -25,5 +25,5 @@ spec:
         image: ghcr.io/provenance-io/p8e-migration:0.6.0-public-release-beta.5
         imagePullPolicy: Always
         envFrom:
-        - configMapRef:
-            name: common-env
+          - configMapRef:
+              name: common-env

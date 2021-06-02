@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: object-store-env
+  namespace: p8e
+data:
+  DB_CONNECTION_POOL_SIZE: "3"
+  DB_DATABASE: object-store
+  DB_SCHEMA: object-store
+  OS_PORT: "8080"
+  OS_URL: 0.0.0.0
+  STORAGE_BASE_PATH: /mnt/data
+  STORAGE_TYPE: file_system
+  URI_HOST: localhost:8080

@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: p8e-env
+  namespace: p8e
+data:
+  CHAINCODE_API_KEY: ""
+  CHAINCODE_CHAIN_ID: chain-local
+  CHAINCODE_GRPC_URL: grpc://192.168.20.2:9090
+  CHAINCODE_MAINNET: "false"
+  CHAINCODE_MNEMONIC: fame shuffle honey general ten virtual cloth stock exchange liar muffin permit behind matter dumb genuine purchase fox used odor decline truth label load
+  CHAINCODE_URL: http://192.168.20.2:1317
+  CONTRACT_ENGINE_THREAD_POOL_SIZE: "32"
+  DB_NAME: p8e
+  DB_SCHEMA: p8e
+  EVENT_STREAM_EPOCH: "0"
+  EVENT_STREAM_ID: 5440aa01-0e14-47a3-9e04-e72504484529
+  EVENT_STREAM_KEY: ""
+  EVENT_STREAM_RPC_URI: http://192.168.20.2:26657
+  EVENT_STREAM_WEBSOCKET_URI: ws://192.168.20.2:26657
+  JWT_CONSUMER: not-sure-yet
+  JWT_EXPIRE_SECONDS: "43200"
+  JWT_ISSUER: Provenance
+  JWT_SECRET: NOyNPnJ6pujmaEXug1wxrepdPrvYHJDFFvXn3XlHOfwF92tIGZ2cERL66uXgKTef
+  MAILBOX_API_KEY: KnfNsgXoIomkH7QhYDFNRpJ3wubaYMcs
+  MAILBOX_URL: http://mailbox:8080/object-store/internal
+  METRIC_COLLECTORS: file
+  METRIC_PREFIX: local
+  METRIC_TAGS: env:local
+  OS_API_KEY: ""
+  OS_URL: grpc://object-store:8080
+  SPRING_PROFILES_ACTIVE: container

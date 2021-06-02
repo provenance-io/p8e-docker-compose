@@ -32,6 +32,8 @@ spec:
         envFrom:
         - configMapRef:
             name: common-env
+        - configMapRef:
+            name: object-store-env
       volumes:
       - name: object-store
         persistentVolumeClaim:

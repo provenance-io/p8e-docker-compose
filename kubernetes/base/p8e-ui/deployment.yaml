@@ -26,3 +26,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        env:
+          - name: P8E_URL
+            value: http://localhost:5003

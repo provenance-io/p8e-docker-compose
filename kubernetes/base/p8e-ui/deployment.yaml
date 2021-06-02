@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p8e-ui-deployment
+  namespace: p8e
+  labels:
+    app: p8e-ui
+spec:
+  selector:
+    matchLabels:
+      app: p8e-ui
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: p8e-ui
+    spec:
+      containers:
+      - name: p8e-ui
+        image: ghcr.io/provenance-io/p8e-ui:0.6.0-public-release-beta.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

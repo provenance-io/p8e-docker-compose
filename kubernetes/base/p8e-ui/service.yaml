@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: p8e-ui-service
+  namespace: p8e
+  labels:
+    app: p8e-ui
+spec:
+  type: LoadBalancer
+  selector:
+    app: p8e-ui
+  ports:
+    - protocol: TCP
+      name: http
+      port: 3000
+      targetPort: 80

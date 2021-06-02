@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p8e-deployment
+  namespace: p8e
+  labels:
+    app: p8e
+spec:
+  selector:
+    matchLabels:
+      app: p8e
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: p8e
+    spec:
+      containers:
+      - name: p8e
+        image: ghcr.io/provenance-io/p8e-api:0.6.0-public-release-beta.5
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: common-env

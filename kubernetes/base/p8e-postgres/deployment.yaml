@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p8e-postgres-deployment
+  namespace: p8e
+  labels:
+    app: p8e-postgres
+spec:
+  selector:
+    matchLabels:
+      app: p8e-postgres
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: p8e-postgres
+    spec:
+      containers:
+      - name: p8e-postgres
+        image: postgres:9.6.6-alpine
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: p8e-postgres
+          mountPath: /var/lib/postgresql/data
+        envFrom:
+        - configMapRef:
+            name: common-env
+      volumes:
+      - name: p8e-postgres
+        persistentVolumeClaim:
+          claimName: p8e-postgres-claim

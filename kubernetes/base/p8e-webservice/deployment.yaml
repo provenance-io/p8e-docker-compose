@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p8e-webservice-deployment
+  namespace: p8e
+  labels:
+    app: p8e-webservice
+spec:
+  selector:
+    matchLabels:
+      app: p8e-webservice
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: p8e-webservice
+    spec:
+      containers:
+      - name: p8e-webservice
+        image: ghcr.io/provenance-io/p8e-api-webservice:0.6.0-public-release-beta.5
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8090
+        envFrom:
+        - configMapRef:
+            name: common-env

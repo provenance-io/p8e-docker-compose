@@ -1,0 +1,12 @@
+commonLabels:
+  app: p8e
+bases:
+  - ./p8e
+  - ./p8e-migration
+  - ./p8e-webservice
+  - ./p8e-postgres
+  - ./p8e-ui
+  - ./object-store
+resources:
+  - namespace.yaml
+  - common-env.yaml

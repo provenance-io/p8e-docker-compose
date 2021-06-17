@@ -20,5 +20,9 @@ data:
   METRIC_PREFIX: local
   METRIC_TAGS: env:local
   OS_API_KEY: ""
-  OS_URL: grpc://object-store:8080
+  OS_URL: grpc://object-store:5000
   SPRING_PROFILES_ACTIVE: container
+  JWT_CONSUMER: not-sure-yet
+  JWT_EXPIRE_SECONDS: "43200"
+  JWT_ISSUER: Provenance
+  JWT_SECRET: NOyNPnJ6pujmaEXug1wxrepdPrvYHJDFFvXn3XlHOfwF92tIGZ2cERL66uXgKTef

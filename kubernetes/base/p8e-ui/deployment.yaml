@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: p8e-ui
-        image: ghcr.io/provenance-io/p8e-ui:0.6.0-public-release-beta.2
+        image: ghcr.io/provenance-io/p8e-ui:0.7.1
         imagePullPolicy: Always
         ports:
         - containerPort: 80

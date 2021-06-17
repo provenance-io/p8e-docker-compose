@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: p8e
-        image: ghcr.io/provenance-io/p8e-api:0.6.0-public-release-beta.5
+        image: ghcr.io/provenance-io/p8e-api:0.7.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -31,3 +31,13 @@ spec:
             name: common-env
         - configMapRef:
             name: p8e-env
+      initContainers:
+      - name: p8e-migration
+        image: ghcr.io/provenance-io/p8e-migration:0.7.1
+        imagePullPolicy: Always
+        args: ["migrate"]
+        envFrom:
+          - configMapRef:
+              name: common-env
+          - configMapRef:
+              name: p8e-migration-env

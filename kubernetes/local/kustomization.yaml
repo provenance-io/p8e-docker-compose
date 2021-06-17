@@ -4,3 +4,4 @@ kind: Kustomization
 bases:
   - ../base
   - ./elasticsearch
+  - ./p8e-postgres

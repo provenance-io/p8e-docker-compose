@@ -29,6 +29,9 @@ spec:
         volumeMounts:
         - name: p8e-postgres
           mountPath: /var/lib/postgresql/data
+        - name: p8e-postgres-init
+          mountPath: /docker-entrypoint-initdb.d
+          readOnly: true
         envFrom:
         - configMapRef:
             name: common-env
@@ -36,3 +39,6 @@ spec:
       - name: p8e-postgres
         persistentVolumeClaim:
           claimName: p8e-postgres-claim
+      - name: p8e-postgres-init
+        configMap:
+          name: p8e-postgres-init

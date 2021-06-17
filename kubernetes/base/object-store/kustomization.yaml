@@ -5,3 +5,4 @@ resources:
   - service.yaml
   - secret.yaml
   - object-store-env.yaml
+  - persistent-volume-claim.yaml

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: p8e-postgres-init
+  namespace: p8e
+data:
+  create-all-dbs.sh: |
+    #!/bin/bash
+
+    DATABASES=(
+      "object-store"
+      "p8e"
+    )
+
+    for db in "${DATABASES[@]}"; do
+      psql -U $POSTGRES_USER -c "CREATE DATABASE \"$db\";"
+      psql -U $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE \"$db\" TO postgres;"
+      psql -U $POSTGRES_USER $db -c "CREATE SCHEMA \"$db\";"
+      psql -U $POSTGRES_USER $db -c "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\" WITH SCHEMA \"$db\";"
+      psql -U $POSTGRES_USER -c "ALTER DATABASE \"$db\" SET search_path TO public,\"$db\";"
+    done

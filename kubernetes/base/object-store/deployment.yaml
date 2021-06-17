@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: object-store
-        image: ghcr.io/provenance-io/object-store:0.1.0-public-release-beta.2
+        image: ghcr.io/provenance-io/object-store:0.1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

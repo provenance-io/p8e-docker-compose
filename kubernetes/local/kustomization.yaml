@@ -5,3 +5,8 @@ bases:
   - ../base
   - ./elasticsearch
   - ./p8e-postgres
+
+patchesStrategicMerge:
+  - ./p8e/p8e-secret.yaml
+  - ./p8e/p8e-migration-secret.yaml
+  - ./p8e-ui/p8e-ui-env.yaml

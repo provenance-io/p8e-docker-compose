@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: p8e-webservice-service
+  name: p8e-webservice
   namespace: p8e
   labels:
     app: p8e-webservice

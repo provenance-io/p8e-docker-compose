@@ -28,6 +28,6 @@ spec:
         - containerPort: 8090
         envFrom:
         - configMapRef:
-            name: common-env
+            name: common
         - configMapRef:
-            name: p8e-webservice-env
+            name: p8e-webservice

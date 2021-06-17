@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: common
+  namespace: p8e
+data:
+  DB_HOST: # hostname of database, like p8e-postgres if running k8s postgres pod
+  DB_PORT: "5432"
+  DB_USER: # username to connect to db with postgres
+  POSTGRES_USER: # usernmae to connect to db with postgres
+  ELASTICSEARCH_HOST: # hostname of elasticsearch, like elasticsearch if running elasticsearch pod
+  ELASTICSEARCH_PORT: "9200"
+  ELASTICSEARCH_PREFIX: http
+  ELASTICSEARCH_USERNAME: # username to connect to elasticsearch as elastic

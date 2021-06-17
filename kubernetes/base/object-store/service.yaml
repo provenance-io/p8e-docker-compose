@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: object-store-service
+  name: object-store
   namespace: p8e
   labels:
     app: object-store

@@ -34,7 +34,7 @@ spec:
           readOnly: true
         envFrom:
         - configMapRef:
-            name: common-env
+            name: common
       volumes:
       - name: p8e-postgres
         persistentVolumeClaim:

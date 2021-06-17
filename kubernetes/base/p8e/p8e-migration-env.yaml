@@ -1,8 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: p8e-migration-env
+  name: p8e-migration
   namespace: p8e
 data:
+  FLYWAY_USER: postgres
   FLYWAY_URL: jdbc:postgresql://p8e-postgres:5432/p8e
   FLYWAY_SCHEMAS: p8e

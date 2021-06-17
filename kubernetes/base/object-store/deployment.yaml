@@ -31,9 +31,11 @@ spec:
           mountPath: /mnt/data
         envFrom:
         - configMapRef:
-            name: common-env
+            name: common
+        - secretRef:
+            name: common
         - configMapRef:
-            name: object-store-env
+            name: object-store
       volumes:
       - name: object-store
         persistentVolumeClaim:

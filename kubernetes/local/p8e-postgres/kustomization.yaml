@@ -3,6 +3,5 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-  - secret.yaml
   - persistent-volume-claim.yaml
   - p8e-postgres-init.yaml

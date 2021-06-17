@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../base
+
+patchesStrategicMerge:
+  - ./common-env.yaml
+  - ./common-secret.yaml
+  - ./p8e/p8e-env.yaml
+  - ./p8e/p8e-secret.yaml
+  - ./p8e/p8e-migration-env.yaml
+  - ./p8e/p8e-migration-secret.yaml
+  - ./p8e-webservice/p8e-webservice-env.yaml
+  - ./p8e-ui/p8e-ui-env.yaml
+  - ./object-store/object-store-env.yaml

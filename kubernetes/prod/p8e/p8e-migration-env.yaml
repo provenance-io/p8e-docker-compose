@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: p8e-migration
+  namespace: p8e
+data:
+  FLYWAY_USER: # user to run db migrations as postgres
+  FLYWAY_URL: # jdbc url of database, like jdbc:postgresql://p8e-postgres:5432/p8e
+  FLYWAY_SCHEMAS: p8e

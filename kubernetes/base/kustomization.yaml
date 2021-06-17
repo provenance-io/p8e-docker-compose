@@ -10,3 +10,4 @@ bases:
 resources:
   - namespace.yaml
   - common-env.yaml
+  - common-secret.yaml

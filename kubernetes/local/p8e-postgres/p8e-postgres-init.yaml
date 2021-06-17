@@ -4,7 +4,7 @@ metadata:
   name: p8e-postgres-init
   namespace: p8e
 data:
-  create-all-dbs.sh: |
+  1-create-all-dbs.sh: |
     #!/bin/bash
 
     DATABASES=(

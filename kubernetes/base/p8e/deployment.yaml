@@ -4,11 +4,11 @@ metadata:
   name: p8e-deployment
   namespace: p8e
   labels:
-    app: p8e
+    app: p8e-api
 spec:
   selector:
     matchLabels:
-      app: p8e
+      app: p8e-api
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: p8e
+        app: p8e-api
     spec:
       containers:
       - name: p8e
@@ -28,9 +28,11 @@ spec:
         - containerPort: 8080
         envFrom:
         - configMapRef:
-            name: common-env
+            name: common
         - configMapRef:
-            name: p8e-env
+            name: p8e-api
+        - secretRef:
+            name: p8e-api
       initContainers:
       - name: p8e-migration
         image: ghcr.io/provenance-io/p8e-migration:0.7.1
@@ -38,6 +40,8 @@ spec:
         args: ["migrate"]
         envFrom:
           - configMapRef:
-              name: common-env
+              name: common
           - configMapRef:
-              name: p8e-migration-env
+              name: p8e-migration
+          - secretRef:
+              name: p8e-migration

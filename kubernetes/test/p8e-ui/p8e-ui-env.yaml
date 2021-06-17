@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: p8e-ui
+  namespace: p8e
+data:
+  P8E_URL: # the base url of the p8e-api-webservice

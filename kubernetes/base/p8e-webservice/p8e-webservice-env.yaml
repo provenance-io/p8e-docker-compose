@@ -19,3 +19,4 @@ data:
   PROVENANCE_OAUTH_REDIRECT_URL: http://localhost:3000/oauth/callback
   PROVENANCE_OAUTH_URL: https://test.provenance.io/login/oauth/authorize
   SPRING_PROFILES_ACTIVE: container
+  REST_SERVER_PORT: "8080"

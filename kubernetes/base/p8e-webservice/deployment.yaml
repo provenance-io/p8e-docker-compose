@@ -25,7 +25,7 @@ spec:
         image: ghcr.io/provenance-io/p8e-api-webservice:0.7.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 8090
+        - containerPort: 8080
         envFrom:
         - configMapRef:
             name: common

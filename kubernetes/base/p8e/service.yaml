@@ -11,6 +11,6 @@ spec:
     app: p8e-api
   ports:
     - protocol: TCP
-      name: http
+      name: p8e-api-http
       port: 5002
       targetPort: 8080

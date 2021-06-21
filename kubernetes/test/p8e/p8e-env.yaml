@@ -16,8 +16,8 @@ data:
   EVENT_STREAM_RPC_URI: # rpc url of node, like http://192.168.20.2:26657
   EVENT_STREAM_WEBSOCKET_URI: # websocket url of node, like ws://192.168.20.2:26657
   METRIC_COLLECTORS: file
-  METRIC_PREFIX: local
-  METRIC_TAGS: env:local
+  METRIC_PREFIX: test
+  METRIC_TAGS: env:test
   OS_API_KEY: ""
   OS_URL: grpc://object-store:8080
   SPRING_PROFILES_ACTIVE: container

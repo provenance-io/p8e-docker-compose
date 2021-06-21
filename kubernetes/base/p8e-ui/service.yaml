@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: p8e-ui-service
+  name: p8e-ui
   namespace: p8e
   labels:
     app: p8e-ui
@@ -11,6 +11,6 @@ spec:
     app: p8e-ui
   ports:
     - protocol: TCP
-      name: http
+      name: p8e-ui-http
       port: 3000
       targetPort: 80

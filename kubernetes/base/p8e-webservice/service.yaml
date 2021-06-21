@@ -11,6 +11,6 @@ spec:
     app: p8e-webservice
   ports:
     - protocol: TCP
-      name: http
+      name: p8e-webservice-http
       port: 5003
       targetPort: 8080

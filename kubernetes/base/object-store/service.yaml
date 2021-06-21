@@ -11,6 +11,6 @@ spec:
     app: object-store
   ports:
     - protocol: TCP
-      name: http
+      name: object-store-http
       port: 5000
       targetPort: 8080

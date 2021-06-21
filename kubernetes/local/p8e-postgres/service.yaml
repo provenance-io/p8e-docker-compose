@@ -11,6 +11,6 @@ spec:
     app: p8e-postgres
   ports:
     - protocol: TCP
-      name: http
+      name: p8e-postgres-http
       port: 5432
       targetPort: 5432

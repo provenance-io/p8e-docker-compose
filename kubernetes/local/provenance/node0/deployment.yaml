@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: provenance-node0-deployment
+  namespace: p8e
+  labels:
+    app: node0
+spec:
+  selector:
+    matchLabels:
+      app: node0
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: node0
+    spec:
+      containers:
+      - name: node0
+        image: provenanceio/provenance:v1.4.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 1317
+        - containerPort: 9090
+        - containerPort: 26656
+        - containerPort: 26657
+        command: ["/home/provenance/custom_entrypoint.sh"]
+        volumeMounts:
+        - name: provenance-data
+          mountPath: /home/provenance/data
+        - name: provenance-config
+          mountPath: /home/provenance/config
+        - name: provenance-config-genesisjson
+          mountPath: /home/provenance/config/genesis.json
+          subPath: genesis.json
+        - name: provenance-config-apptoml
+          mountPath: /home/provenance/config/app.toml
+          subPath: app.toml
+        - name: provenance-custom-entrypoint
+          mountPath: /home/provenance/custom_entrypoint.sh
+          subPath: custom_entrypoint.sh
+        - name: provenance-config-configtoml
+          mountPath: /home/provenance/config/config.toml
+          subPath: config.toml
+        - name: provenance-config-nodekeyjson
+          mountPath: /home/provenance/config/node_key.json
+          subPath: node_key.json
+        - name: provenance-config-privvalidatorkeyjson
+          mountPath: /home/provenance/config/priv_validator_key.json
+          subPath: priv_validator_key.json
+        env:
+          - name: ID
+            value: "0"
+          - name: LOG
+            value: -provenanced.log
+      volumes:
+      - name: provenance-data
+        persistentVolumeClaim:
+          claimName: provenance-data-claim-node0
+      - name: provenance-config
+        persistentVolumeClaim:
+          claimName: provenance-config-claim-node0
+      - name: provenance-config-genesisjson
+        configMap:
+          name: provenance-config
+          items:
+          - key: genesis.json
+            path: genesis.json
+      - name: provenance-config-apptoml
+        configMap:
+          name: provenance-config
+          items:
+          - key: app.toml
+            path: app.toml
+      - name: provenance-custom-entrypoint
+        configMap:
+          name: provenance-config
+          items:
+          - key: custom_entrypoint.sh
+            path: custom_entrypoint.sh
+            mode: 0700
+      - name: provenance-config-configtoml
+        configMap:
+          name: provenance-config
+          items:
+          - key: node0-config.toml
+            path: config.toml
+      - name: provenance-config-nodekeyjson
+        configMap:
+          name: provenance-config
+          items:
+          - key: node0-node_key.json
+            path: node_key.json
+      - name: provenance-config-privvalidatorkeyjson
+        configMap:
+          name: provenance-config
+          items:
+          - key: node0-priv_validator_key.json
+            path: priv_validator_key.json

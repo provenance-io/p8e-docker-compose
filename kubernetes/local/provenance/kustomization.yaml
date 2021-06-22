@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: p8e
+bases:
+  - ./node0
+  - ./node1
+  - ./node2
+  - ./node3
+configMapGenerator:
+  - name: provenance-config
+    files:
+    - config/shared/genesis.json
+    - config/shared/app.toml
+    - config/shared/custom_entrypoint.sh
+    - node0-config.toml=config/node0/config.toml
+    - node0-node_key.json=config/node0/node_key.json
+    - node0-priv_validator_key.json=config/node0/priv_validator_key.json
+    - node1-config.toml=config/node1/config.toml
+    - node1-node_key.json=config/node1/node_key.json
+    - node1-priv_validator_key.json=config/node1/priv_validator_key.json
+    - node2-config.toml=config/node2/config.toml
+    - node2-node_key.json=config/node2/node_key.json
+    - node2-priv_validator_key.json=config/node2/priv_validator_key.json
+    - node3-config.toml=config/node3/config.toml
+    - node3-node_key.json=config/node3/node_key.json
+    - node3-priv_validator_key.json=config/node3/priv_validator_key.json

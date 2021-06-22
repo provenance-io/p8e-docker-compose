@@ -5,6 +5,7 @@ bases:
   - ../base
   - ./elasticsearch
   - ./p8e-postgres
+  - ./provenance
 
 patchesStrategicMerge:
   - ./p8e/p8e-secret.yaml

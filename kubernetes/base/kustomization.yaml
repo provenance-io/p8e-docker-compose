@@ -7,6 +7,5 @@ bases:
   - ./p8e-ui
   - ./object-store
 resources:
-  - namespace.yaml
   - common-env.yaml
   - common-secret.yaml

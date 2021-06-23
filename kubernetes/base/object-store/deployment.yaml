@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: object-store-deployment
-  namespace: p8e
   labels:
     app: object-store
 spec:

@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: provenance-node3-deployment
-  namespace: p8e
   labels:
     app: node3
 spec:

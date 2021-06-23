@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: p8e-postgres-deployment
-  namespace: p8e
   labels:
     app: p8e-postgres
 spec:

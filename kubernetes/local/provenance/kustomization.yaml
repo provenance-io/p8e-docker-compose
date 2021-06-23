@@ -9,9 +9,9 @@ bases:
 configMapGenerator:
   - name: provenance-config
     files:
-    - config/shared/genesis.json
-    - config/shared/app.toml
     - config/shared/custom_entrypoint.sh
+    - shared-genesis.json=config/shared/genesis.json
+    - shared-app.toml=config/shared/app.toml
     - node0-config.toml=config/node0/config.toml
     - node0-node_key.json=config/node0/node_key.json
     - node0-priv_validator_key.json=config/node0/priv_validator_key.json

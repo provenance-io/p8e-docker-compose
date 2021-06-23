@@ -29,33 +29,18 @@ spec:
         - containerPort: 9090
         - containerPort: 26656
         - containerPort: 26657
-        command: ["/home/provenance/custom_entrypoint.sh"]
+        command: ["sh"]
+        args: ["/home/provenance/seed/custom_entrypoint.sh"]
         volumeMounts:
         - name: provenance-data
           mountPath: /home/provenance/data
         - name: provenance-config
           mountPath: /home/provenance/config
-        - name: provenance-config-genesisjson
-          mountPath: /home/provenance/config/genesis.json
-          subPath: genesis.json
-        - name: provenance-config-apptoml
-          mountPath: /home/provenance/config/app.toml
-          subPath: app.toml
-        - name: provenance-custom-entrypoint
-          mountPath: /home/provenance/custom_entrypoint.sh
-          subPath: custom_entrypoint.sh
-        - name: provenance-config-configtoml
-          mountPath: /home/provenance/config/config.toml
-          subPath: config.toml
-        - name: provenance-config-nodekeyjson
-          mountPath: /home/provenance/config/node_key.json
-          subPath: node_key.json
-        - name: provenance-config-privvalidatorkeyjson
-          mountPath: /home/provenance/config/priv_validator_key.json
-          subPath: priv_validator_key.json
+        - name: provenance-config-seed
+          mountPath: /home/provenance/seed
         env:
           - name: ID
-            value: "0"
+            value: "2"
           - name: LOG
             value: -provenanced.log
       volumes:
@@ -65,40 +50,6 @@ spec:
       - name: provenance-config
         persistentVolumeClaim:
           claimName: provenance-config-claim-node2
-      - name: provenance-config-genesisjson
+      - name: provenance-config-seed
         configMap:
           name: provenance-config
-          items:
-          - key: genesis.json
-            path: genesis.json
-      - name: provenance-config-apptoml
-        configMap:
-          name: provenance-config
-          items:
-          - key: app.toml
-            path: app.toml
-      - name: provenance-custom-entrypoint
-        configMap:
-          name: provenance-config
-          items:
-          - key: custom_entrypoint.sh
-            path: custom_entrypoint.sh
-            mode: 0700
-      - name: provenance-config-configtoml
-        configMap:
-          name: provenance-config
-          items:
-          - key: node2-config.toml
-            path: config.toml
-      - name: provenance-config-nodekeyjson
-        configMap:
-          name: provenance-config
-          items:
-          - key: node2-node_key.json
-            path: node_key.json
-      - name: provenance-config-privvalidatorkeyjson
-        configMap:
-          name: provenance-config
-          items:
-          - key: node2-priv_validator_key.json
-            path: priv_validator_key.json

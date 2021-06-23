@@ -24,3 +24,6 @@ configMapGenerator:
     - node3-config.toml=config/node3/config.toml
     - node3-node_key.json=config/node3/node_key.json
     - node3-priv_validator_key.json=config/node3/priv_validator_key.json
+
+generatorOptions:
+  disableNameSuffixHash: true

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: provenance-config-claim-node0
+  name: provenance-data-claim
   labels:
-    app: provenance-config-node0
+    app: provenance-data
 spec:
   accessModes:
     - ReadWriteOnce

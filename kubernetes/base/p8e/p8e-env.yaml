@@ -4,17 +4,17 @@ metadata:
   name: p8e-api
 data:
   CHAINCODE_CHAIN_ID: chain-local
-  CHAINCODE_GRPC_URL: grpc://node0:9090
+  CHAINCODE_GRPC_URL: grpc://provenance-node0:9090
   CHAINCODE_MAINNET: "false"
-  CHAINCODE_URL: http://node0:1317
+  CHAINCODE_URL: http://provenance-node0:1317
   CONTRACT_ENGINE_THREAD_POOL_SIZE: "32"
   DB_NAME: p8e
   DB_SCHEMA: p8e
   EVENT_STREAM_EPOCH: "0"
   EVENT_STREAM_ID: 5440aa01-0e14-47a3-9e04-e72504484529
   EVENT_STREAM_KEY: ""
-  EVENT_STREAM_RPC_URI: http://node0:26657
-  EVENT_STREAM_WEBSOCKET_URI: ws://node0:26657
+  EVENT_STREAM_RPC_URI: http://provenance-node0:26657
+  EVENT_STREAM_WEBSOCKET_URI: ws://provenance-node0:26657
   METRIC_COLLECTORS: file
   METRIC_PREFIX: local
   METRIC_TAGS: env:local

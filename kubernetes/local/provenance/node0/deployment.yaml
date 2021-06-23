@@ -1,47 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: provenance-node0-deployment
+  name: provenance-deployment
   labels:
     app: node0
 spec:
   selector:
     matchLabels:
       app: node0
-  replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
   template:
     metadata:
       labels:
         app: node0
     spec:
       containers:
-      - name: node0
-        image: provenanceio/provenance:v1.4.1
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 1317
-        - containerPort: 9090
-        - containerPort: 26656
-        - containerPort: 26657
-        command: ["sh"]
-        args: ["/home/provenance/seed/custom_entrypoint.sh"]
-        volumeMounts:
-        - name: provenance-data
-          mountPath: /home/provenance/data
-        - name: provenance-config
-          mountPath: /home/provenance/config
-        - name: provenance-config-seed
-          mountPath: /home/provenance/seed
+      - name: node
         env:
           - name: ID
             value: "0"
-          - name: LOG
-            value: -provenanced.log
       volumes:
       - name: provenance-data
         persistentVolumeClaim:
@@ -49,6 +25,3 @@ spec:
       - name: provenance-config
         persistentVolumeClaim:
           claimName: provenance-config-claim-node0
-      - name: provenance-config-seed
-        configMap:
-          name: provenance-config

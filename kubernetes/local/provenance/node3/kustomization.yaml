@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: p8e
-resources:
+nameSuffix: -node3
+bases:
+  - ../node
+patchesStrategicMerge:
   - deployment.yaml
   - service.yaml
-  - provenance-data-claim.yaml
-  - provenance-config-claim.yaml

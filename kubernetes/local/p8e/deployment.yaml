@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p8e-deployment
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: p8e-migration
+      - name: p8e-keys
+        image: governmentpaas/psql
+        imagePullPolicy: Always
+        command: ["sh"]
+        args: ["/p8e/init_keys.sh"]
+        envFrom:
+          - configMapRef:
+              name: common
+          - configMapRef:
+              name: p8e-api
+          - secretRef:
+              name: common
+        volumeMounts:
+        - name: keys-sql
+          mountPath: /p8e
+      volumes:
+        - name: keys-sql
+          configMap:
+            name: keys-sql

@@ -28,5 +28,7 @@ spec:
         envFrom:
         - configMapRef:
             name: common
+        - secretRef:
+            name: common
         - configMapRef:
             name: p8e-webservice

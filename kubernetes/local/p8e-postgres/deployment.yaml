@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: p8e-postgres
-        image: postgres:9.6.6-alpine
+        image: postgres:9.6.22-alpine
         imagePullPolicy: Always
         ports:
         - containerPort: 5432
@@ -33,6 +33,8 @@ spec:
           readOnly: true
         envFrom:
         - configMapRef:
+            name: common
+        - secretRef:
             name: common
       volumes:
       - name: p8e-postgres

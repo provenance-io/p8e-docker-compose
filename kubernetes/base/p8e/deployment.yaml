@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: p8e
-        image: ghcr.io/provenance-io/p8e-api:0.7.1
+        image: ghcr.io/provenance-io/p8e-api:m1-fix
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -36,7 +36,7 @@ spec:
             name: p8e-api
       initContainers:
       - name: p8e-migration
-        image: ghcr.io/provenance-io/p8e-migration:0.7.1
+        image: ghcr.io/provenance-io/p8e-migration:m1-fix
         imagePullPolicy: Always
         args: ["migrate"]
         envFrom:

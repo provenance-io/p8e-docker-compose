@@ -68,7 +68,7 @@ services:
       - ./os_storage_bucket:/mnt/data
 
   p8e-migrate:
-    image: ghcr.io/provenance-io/p8e-migration:0.7.1
+    image: ghcr.io/provenance-io/p8e-migration:m1-fix
     container_name: p8e-migrate
     networks:
       - p8e

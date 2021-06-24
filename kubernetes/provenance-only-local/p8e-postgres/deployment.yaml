@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p8e-postgres-deployment
+spec:
+  replicas: 0

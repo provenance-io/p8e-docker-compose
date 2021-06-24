@@ -1,7 +1,12 @@
 #!/bin/bash
 set -e
 
-cd provenance
-make build
-make localnet-start
-cd ..
+source bin/source
+
+kubectx docker-desktop
+
+kubectl apply -k ../kubernetes/provenance-only-local
+
+sleep 5 # allow creation of docker network that will need to be linked
+
+docker-compose up -d

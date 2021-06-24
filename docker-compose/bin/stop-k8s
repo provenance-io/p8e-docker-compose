@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+. bin/source
+
+docker-compose down
+
+kubectx docker-desktop
+kubectl scale deploy -n p8e-local --replicas=0 --all || echo "p8e-local k8s already stopped"

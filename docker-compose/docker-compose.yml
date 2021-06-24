@@ -111,7 +111,7 @@ services:
       - 5003:8090
 
   p8e-ui:
-    image: ghcr.io/provenance-io/p8e-ui:0.6.0-public-release-beta.2
+    image: ghcr.io/provenance-io/p8e-ui:m1-fix
     container_name: p8e-ui
     networks:
       - p8e

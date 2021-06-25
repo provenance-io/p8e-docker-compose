@@ -6,4 +6,8 @@ bases:
 
 patchesStrategicMerge:
   - ./p8e/deployment.yaml
+  - ./p8e/service.yaml
   - ./p8e-webservice/deployment.yaml
+  - ./p8e-webservice/service.yaml
+  - ./p8e-ui/deployment.yaml
+  - ./p8e-ui/service.yaml

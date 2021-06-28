@@ -11,7 +11,7 @@ data:
   JWT_ISSUER: Provenance
   JWT_SECRET: NOyNPnJ6pujmaEXug1wxrepdPrvYHJDFFvXn3XlHOfwF92tIGZ2cERL66uXgKTef
   OS_API_KEY: ""
-  OS_URL: grpc://object-store:8080
+  OS_URL: grpc://object-store:5000
   PROVENANCE_KEYSTONE_URL: https://test.provenance.io/keystone/key/registration/secured
   PROVENANCE_OAUTH_CLIENT_ID: KVGCJaT+f5NekCvPJeZikOZ5ekDb3h2IUa35OOc+O+6Ui61w+h/9fCmdWpZx1kTXpner5YMvrH3GF+PvuP1zxQ==
   PROVENANCE_OAUTH_IDENTITY_URL: https://test.provenance.io/identity

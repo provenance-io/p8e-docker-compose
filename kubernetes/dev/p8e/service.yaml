@@ -2,5 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: p8e-api
+  labels:
+    app: p8e-api
 spec:
-  type: ClusterIP
+  type: LoadBalancer
+  selector:
+    app: p8e-api
+  ports:
+    - port: 5002
+      $patch: delete
+    - protocol: TCP
+      name: p8e-api-http
+      port: 50002

@@ -2,5 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: p8e-ui
+  labels:
+    app: p8e-ui
 spec:
-  type: ClusterIP
+  type: LoadBalancer
+  selector:
+    app: p8e-ui
+  ports:
+    - port: 3000
+      $patch: delete
+    - protocol: TCP
+      name: p8e-ui-http
+      port: 30000

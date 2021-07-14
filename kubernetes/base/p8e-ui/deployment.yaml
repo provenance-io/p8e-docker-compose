@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: p8e-ui
-        image: ghcr.io/provenance-io/p8e-ui:m1-fix
+        image: ghcr.io/provenance-io/p8e-ui:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80

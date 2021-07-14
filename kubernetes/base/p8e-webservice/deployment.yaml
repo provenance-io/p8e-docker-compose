@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: p8e-webservice
-        image: ghcr.io/provenance-io/p8e-api-webservice:m1-fix
+        image: ghcr.io/provenance-io/p8e-api-webservice:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

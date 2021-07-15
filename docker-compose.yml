@@ -76,7 +76,7 @@ services:
       - ./os_storage_bucket:/mnt/data
 
   p8e-migrate:
-    image: ghcr.io/provenance-io/p8e-migration:0.8.2
+    image: ghcr.io/provenance-io/p8e-migration:0.8.3
     container_name: p8e-migrate
     networks:
       - p8e
@@ -90,7 +90,7 @@ services:
     command: migrate
 
   p8e:
-    image: ghcr.io/provenance-io/p8e-api:0.8.2
+    image: ghcr.io/provenance-io/p8e-api:0.8.3
     container_name: p8e
     networks:
       - p8e
@@ -106,7 +106,7 @@ services:
       - 5002:8080
 
   p8e-webservice:
-    image: ghcr.io/provenance-io/p8e-api-webservice:0.8.2
+    image: ghcr.io/provenance-io/p8e-api-webservice:0.8.3
     container_name: p8e-webservice
     networks:
       - p8e

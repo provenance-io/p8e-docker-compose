@@ -22,6 +22,15 @@ services:
     command:
       postgres
 
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    networks:
+      - p8e
+    ports:
+      - "${HOST_JAEGER_TRACING_PORT}:6831"
+      - "${HOST_JAEGER_URL_PORT}:16686"
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
     container_name: elasticsearch
@@ -52,7 +61,7 @@ services:
       - p8e
 
   object-store:
-    image: ghcr.io/provenance-io/object-store:latest
+    image: ghcr.io/provenance-io/object-store:0.2.0
     container_name: object-store
     networks:
       - p8e
@@ -67,7 +76,7 @@ services:
       - ./os_storage_bucket:/mnt/data
 
   p8e-migrate:
-    image: ghcr.io/provenance-io/p8e-migration:latest
+    image: ghcr.io/provenance-io/p8e-migration:0.8.3
     container_name: p8e-migrate
     networks:
       - p8e
@@ -81,7 +90,7 @@ services:
     command: migrate
 
   p8e:
-    image: ghcr.io/provenance-io/p8e-api:latest
+    image: ghcr.io/provenance-io/p8e-api:0.8.3
     container_name: p8e
     networks:
       - p8e
@@ -97,7 +106,7 @@ services:
       - 5002:8080
 
   p8e-webservice:
-    image: ghcr.io/provenance-io/p8e-api-webservice:latest
+    image: ghcr.io/provenance-io/p8e-api-webservice:0.8.3
     container_name: p8e-webservice
     networks:
       - p8e

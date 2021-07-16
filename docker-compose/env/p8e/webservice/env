@@ -13,3 +13,4 @@ PROVENANCE_OAUTH_CLIENT_ID=KVGCJaT+f5NekCvPJeZikOZ5ekDb3h2IUa35OOc+O+6Ui61w+h/9f
 PROVENANCE_OAUTH_REDIRECT_URL=http://localhost:3000/oauth/callback
 PROVENANCE_OAUTH_IDENTITY_URL=https://test.provenance.io/identity
 PROVENANCE_KEYSTONE_URL=https://test.provenance.io/keystone/key/registration/secured
+SMARTKEY_API_KEY=

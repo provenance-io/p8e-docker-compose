@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger
+  labels:
+    app: jaeger
+spec:
+  type: LoadBalancer
+  selector:
+    app: jaeger
+  ports:
+    - protocol: TCP
+      name: jaeger-http-tracing
+      port: 6831
+      targetPort: 6831
+    - protocol: TCP
+      name: jaeger-http-url
+      port: 16686
+      targetPort: 16686

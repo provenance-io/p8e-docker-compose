@@ -8,6 +8,7 @@ bases:
   - ./elasticsearch
   - ./p8e-postgres
   - ./provenance
+  - ./jaeger
 
 resources:
   - namespace.yaml

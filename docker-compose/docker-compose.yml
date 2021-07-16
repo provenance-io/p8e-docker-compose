@@ -3,8 +3,7 @@ version: '3.5'
 services:
 
   p8e-postgres:
-    image: postgres:9.6.6-alpine
-    platform: linux/x86_64
+    image: postgres:9.6.22-alpine
     container_name: p8e-postgres
     networks:
       - p8e

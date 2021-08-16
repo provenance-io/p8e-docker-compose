@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: node
-        image: provenanceio/provenance:v1.4.1
+        image: provenanceio/provenance:v1.5.0
         imagePullPolicy: Always
         ports:
         - containerPort: 1317

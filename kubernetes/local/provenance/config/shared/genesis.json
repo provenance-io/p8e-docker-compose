@@ -519,7 +519,7 @@
           ],
           "status": "MARKER_STATUS_ACTIVE",
           "denom": "nhash",
-          "supply": "100010000000000000000",
+          "supply": "100020000000000000000",
           "marker_type": "MARKER_TYPE_COIN",
           "supply_fixed": true,
           "allow_governance_control": true

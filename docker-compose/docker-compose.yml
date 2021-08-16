@@ -52,7 +52,7 @@ services:
       - p8e
 
   object-store:
-    image: ghcr.io/provenance-io/object-store:0.1.0
+    image: ghcr.io/provenance-io/object-store:0.2.0
     container_name: object-store
     networks:
       - p8e

@@ -69,6 +69,13 @@
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "tp1vz99nyd2er8myeugsr4xm5duwhulhp5arsr9wt",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
         }
       ]
     },
@@ -116,6 +123,15 @@
         },
         {
           "address": "tp1npj3mxkepxfrvw6ddeae73ml33tv9sxds63te7",
+          "coins": [
+            {
+              "denom": "nhash",
+              "amount": "10000000000000000"
+            }
+          ]
+        },
+        {
+          "address": "tp1vz99nyd2er8myeugsr4xm5duwhulhp5arsr9wt",
           "coins": [
             {
               "denom": "nhash",
@@ -503,7 +519,7 @@
           ],
           "status": "MARKER_STATUS_ACTIVE",
           "denom": "nhash",
-          "supply": "100010000000000000000",
+          "supply": "100020000000000000000",
           "marker_type": "MARKER_TYPE_COIN",
           "supply_fixed": true,
           "allow_governance_control": true

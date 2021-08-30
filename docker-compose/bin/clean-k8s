@@ -4,7 +4,7 @@ set -e
 . bin/stop-k8s
 
 docker-compose rm -fsv
-docker volume rm p8e-docker-compose_p8e-postgres || echo "Skipping volume prune because it didn't exist"
+docker volume rm docker-compose_p8e-postgres || echo "Skipping volume prune because it didn't exist"
 
 kubectx docker-desktop
 kubectl delete -k ../kubernetes/provenance-only-local

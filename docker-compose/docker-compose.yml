@@ -67,7 +67,7 @@ services:
       - ./os_storage_bucket:/mnt/data
 
   p8e-migrate:
-    image: ghcr.io/provenance-io/p8e-migration:m1-fix # need a fix to the base flyway image used in order to switch this to latest
+    image: ghcr.io/provenance-io/p8e-migration:m1-fix-0.8.9 # need a fix to the base flyway image used in order to switch this to latest
     container_name: p8e-migrate
     networks:
       - p8e

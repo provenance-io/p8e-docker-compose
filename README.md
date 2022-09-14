@@ -98,3 +98,8 @@ variables that are needed. Be sure to have those defined in your shell!
 ```
 . bin/source
 ```
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
